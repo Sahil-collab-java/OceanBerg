@@ -4,17 +4,19 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.example.OceanBerg.Model.coursesReg;
+import com.example.OceanBerg.Model.CoursesReg;
 
 @Repository
-public interface CoursesRegRepository extends JpaRepository<coursesReg, Long>{
+@EnableJpaRepositories
+public interface CoursesRegRepository extends JpaRepository<CoursesReg, Long>{
 
-	List<coursesReg> findBySerid(Long serid);
-
-	List<coursesReg> findAllBySerid(Long serid);
+//	List<CoursesReg> findBySerid(Long serid);
+//
+//	List<CoursesReg> findAllBySerid(Long serid);
 
 
 

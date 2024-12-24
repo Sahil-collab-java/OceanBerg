@@ -1,14 +1,18 @@
 package com.example.OceanBerg.Model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
+
+
 @Entity
-public class coursesReg {
+public class CoursesReg {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,7 +25,11 @@ public class coursesReg {
 
     private String status;
 
-    private long serid;
+   // private long serid;
+    
+    @ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "serid")
+	private RegModel regModel;
 
     // Getters and Setters (Required for JSON Serialization)
     public long getId() {
@@ -65,11 +73,11 @@ public class coursesReg {
 		this.pageMapping = pageMapping;
 	}
 
-	public long getSerid() {
-        return serid;
-    }
-
-    public void setSerid(long serid) {
-        this.serid = serid;
-    }
+//	public long getSerid() {
+//        return serid;
+//    }
+//
+//    public void setSerid(long serid) {
+//        this.serid = serid;
+//    }
 }

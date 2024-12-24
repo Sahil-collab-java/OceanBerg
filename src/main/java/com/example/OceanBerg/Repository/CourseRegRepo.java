@@ -3,15 +3,17 @@ package com.example.OceanBerg.Repository;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Repository;
 
-import com.example.OceanBerg.Model.coursesReg;
+import com.example.OceanBerg.Model.CoursesReg;
 
 @Repository
-public interface CourseRegRepo extends JpaRepository<coursesReg, Long> {
+@EnableJpaRepositories
+public interface CourseRegRepo extends JpaRepository<CoursesReg, Long> {
 
 	
-	coursesReg findBySerid(Long serid);
+	//CoursesReg findBySerid(Long serid);
 
 	
 

@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.OceanBerg.Model.RegModel;
 
-import com.example.OceanBerg.Model.coursesReg;
+import com.example.OceanBerg.Model.CoursesReg;
 import com.example.OceanBerg.Repository.CourseRegRepo;
 import com.example.OceanBerg.Repository.CoursesRegRepository;
 import com.example.OceanBerg.Repository.RegModelRepository;
@@ -224,29 +224,29 @@ public class logreg {
 //	 }
 	 
 	 
-	 @GetMapping("/myCoursesPage")
-	 public String myCoursesPage(HttpSession session, Model model) {
-	     Long serid = (Long) session.getAttribute("serid");
-
-	     // Check if the user is logged in
-	     if (serid == null) {
-	         model.addAttribute("error", "User is not logged in.");
-	         return "errorPage"; // Redirect to an error page
-	     }
-
-	     // Fetch all courses for the given 'serid'
-	     List<coursesReg> courses = coursesRegRepository.findAllBySerid(serid);
-
-	     // Check if courses exist
-	     if (courses.isEmpty()) {
-	         model.addAttribute("message", "No courses found for the given user.");
-	         return "Courses/myCourses"; // Display a friendly message on the page
-	     }
-
-	     // Add courses to the model
-	     model.addAttribute("courses", courses);
-	     return "Courses/myCourses"; // Render the JSP page
-	 }
+//	 @GetMapping("/myCoursesPage")
+//	 public String myCoursesPage(HttpSession session, Model model) {
+//	     Long serid = (Long) session.getAttribute("serid");
+//
+//	     // Check if the user is logged in
+//	     if (serid == null) {
+//	         model.addAttribute("error", "User is not logged in.");
+//	         return "errorPage"; // Redirect to an error page
+//	     }
+//
+//	     // Fetch all courses for the given 'serid'
+//	     List<CoursesReg> courses = coursesRegRepository.findAllBySerid(serid);
+//
+//	     // Check if courses exist
+//	     if (courses.isEmpty()) {
+//	         model.addAttribute("message", "No courses found for the given user.");
+//	         return "Courses/myCourses"; // Display a friendly message on the page
+//	     }
+//
+//	     // Add courses to the model
+//	     model.addAttribute("courses", courses);
+//	     return "Courses/myCourses"; // Render the JSP page
+//	 }
 
 
 	 

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.example.OceanBerg.Model.coursesReg;
+import com.example.OceanBerg.Model.CoursesReg;
 import com.example.OceanBerg.Repository.CourseRegRepo;
 import com.example.OceanBerg.Repository.CoursesRegRepository;
 import com.example.OceanBerg.Service.RegModelService;
@@ -37,7 +37,7 @@ public class courseController {
 	
 	
 	@PostMapping("/coursessave")
-	public ResponseEntity<String> saveCourses(@RequestBody coursesReg coursesReg) {
+	public ResponseEntity<String> saveCourses(@RequestBody CoursesReg coursesReg) {
 	    try {
 	    	coursesRegRepository.save(coursesReg);
 	        return ResponseEntity.status(HttpStatus.OK).body("Course Join Successfully!");
@@ -47,32 +47,32 @@ public class courseController {
 	}
 	
 	
-	@GetMapping("/courseReg")
-	public ResponseEntity<?> getCourses(HttpSession session) {
-	    Object seridObj = session.getAttribute("serid");
-	   // System.out.println("Session Attribute (serid): " + seridObj);
-
-	    if (seridObj == null || !(seridObj instanceof Long)) {
-	        return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-	                             .body(Collections.singletonMap("error", "User is not logged in."));
-	    }
-
-	    Long serid = (Long) seridObj;
-
-	    try {
-	        List<coursesReg> courses = coursesRegRepository.findBySerid(serid);
-	       // System.out.println("Fetched Courses: " + courses);
-
-	        if (courses.isEmpty()) {
-	            return ResponseEntity.ok(Collections.singletonMap("message", "No courses found for the given user."));
-	        }
-	        return ResponseEntity.ok(courses);
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-	                             .body(Collections.singletonMap("error", "An error occurred while fetching courses."));
-	    }
-	}
+//	@GetMapping("/courseReg")
+//	public ResponseEntity<?> getCourses(HttpSession session) {
+//	    Object seridObj = session.getAttribute("serid");
+//	   // System.out.println("Session Attribute (serid): " + seridObj);
+//
+//	    if (seridObj == null || !(seridObj instanceof Long)) {
+//	        return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+//	                             .body(Collections.singletonMap("error", "User is not logged in."));
+//	    }
+//
+//	    Long serid = (Long) seridObj;
+//
+//	    try {
+//	        List<CoursesReg> courses = coursesRegRepository.findBySerid(serid);
+//	       // System.out.println("Fetched Courses: " + courses);
+//
+//	        if (courses.isEmpty()) {
+//	            return ResponseEntity.ok(Collections.singletonMap("message", "No courses found for the given user."));
+//	        }
+//	        return ResponseEntity.ok(courses);
+//	    } catch (Exception e) {
+//	        e.printStackTrace();
+//	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+//	                             .body(Collections.singletonMap("error", "An error occurred while fetching courses."));
+//	    }
+//	}
 
 	
 

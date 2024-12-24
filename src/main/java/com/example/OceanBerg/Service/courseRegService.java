@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.OceanBerg.Model.RegModel;
-import com.example.OceanBerg.Model.coursesReg;
+import com.example.OceanBerg.Model.CoursesReg;
 import com.example.OceanBerg.Repository.CoursesRegRepository;
 import com.example.OceanBerg.Repository.RegModelRepository;
 
@@ -21,8 +21,10 @@ public class courseRegService {
 	private RegModelRepository regModelRepository;
 
 	
-	 public List<coursesReg> getCoursesBySerid(Long serid) {
-	        return coursesRegRepository.findBySerid(serid);
+	 public List<CoursesReg> getCoursesBySerid(Long serid) {
+	        //return coursesRegRepository.findBySerid(serid);
+		 
+		 return null;
 	    }
 	 
 	 
