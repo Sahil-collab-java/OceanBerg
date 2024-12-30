@@ -205,7 +205,7 @@ body {
 </style>
 </head>
 
-<body onload='makeApiCall()'>
+<body>
 	<!-- Navbar Start -->
 	<nav
 		class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
@@ -457,48 +457,6 @@ body {
 	<script src="lib/waypoints/waypoints.min.js"></script>
 	<script src="lib/owlcarousel/owl.carousel.min.js"></script>
 
-	<!-- Template Javascript -->
-	<script src="js/main.js"></script>
-
-	<script type="text/javascript">
-		function makeApiCall() {
-			const token = localStorage.getItem('jwtToken');
-			const data = {}; // Define data or replace with actual data
-
-			$.ajax({
-				url : "/getUser",
-				type : 'POST',
-				contentType : 'application/json',
-				headers : {
-					'Authorization' : 'Bearer ' + token
-				},
-				data : JSON.stringify(data),
-				success : function(response) {
-					    document.getElementById('user-name').innerText = response.name;
-			            document.getElementById('user-email').innerText = response.email;
-			            document.getElementById('user-address').innerText = response.address;
-			            document.getElementById('user-college-name').innerText = response.collagename;
-			            document.getElementById('user-mobile-no').innerText = response.mobileno;
-			            document.getElementById('user-course-name').innerText = response.coursename;
-			            document.getElementById('user-year-no').innerText = response.yearno;
-			            document.getElementById('user-gender').innerText = response.gender;
-			            document.getElementById('user-dob').innerText = response.dob;
-			            document.getElementById('user-state').innerText = response.state;
-			            document.getElementById('user-city').innerText = response.city;
-			            document.getElementById('user-pincode').innerText = response.pincode;
-			            document.getElementById('login-name').innerText = response.name;
-			          
-				},
-				error : function(xhr, status, error) {
-					alert('Failed ' + xhr.responseText);
-				}
-			});
-		}
-	</script>
-
-
-
-
 
 </body>
 <!-- Bootstrap 5 JS and Popper.js (for dropdown functionality) -->
@@ -506,5 +464,49 @@ body {
 	src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+	function makeApiCall() {
+		const token = localStorage.getItem('jwtToken');
+		const data = {}; // Define data or replace with actual data
+
+		
+				$.ajax({
+					url : "/getUser",
+					type : 'POST',
+					contentType : 'application/json',
+					headers : {
+						'Authorization' : 'Bearer ' + token
+					},
+					data : JSON.stringify(data),
+					success : function(response) {
+						document.getElementById('user-name').innerText = response.name;
+						document.getElementById('user-email').innerText = response.email;
+						document.getElementById('user-address').innerText = response.address;
+						document.getElementById('user-college-name').innerText = response.collagename;
+						document.getElementById('user-mobile-no').innerText = response.mobileno;
+						document.getElementById('user-course-name').innerText = response.coursename;
+						document.getElementById('user-year-no').innerText = response.yearno;
+						document.getElementById('user-gender').innerText = response.gender;
+						document.getElementById('user-dob').innerText = response.dob;
+						document.getElementById('user-state').innerText = response.state;
+						document.getElementById('user-city').innerText = response.city;
+						document.getElementById('user-pincode').innerText = response.pincode;
+						document.getElementById('login-name').innerText = response.name;
+					},
+					error : function(xhr, status, error) {
+						alert('Failed ' + xhr.responseText);
+				
+						window.location.href = '/loginpage';
+						
+					}
+				});
+	}
+
+	$(document).ready(function() {
+		console.log("hello");
+		makeApiCall();
+	});
+</script>
 
 </html>

@@ -453,9 +453,10 @@ body {
         data: JSON.stringify({ username: username, password: password }),
         success: function(response) {
           // alert(response.token)
-            localStorage.setItem('jwtToken', response.token);
+            localStorage.setItem('jwtToken', response.token); 
+          window.location.href = '/profile'; 
+           // fetchProfileWithToken(response.token);
           
-            window.location.href = '/profile';
         },
         error: function(xhr, status, error) {
             alert('Login failed: ' + xhr.responseText);
@@ -463,31 +464,15 @@ body {
     });
     
   });
+  
+  
+  
+  
+  
  
- 
 
-    /* try {
-      const response = await fetch("/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ username, password }),
-      });
-
-      const result = await response.json();
-
-      if (response.ok) {
-        alert(result.successMessage);
-        window.location.href = result.redirectUrl; // Redirect to user details page
-      } else {
-        alert(result.error || "Login failed!");
-      }
-    } catch (error) {
-      alert("An error occurred while processing your request. Please try again.");
-      console.error("Login Error:", error); // Log for debugging
-    }
-  }); */
+  
+  
 </script>
 
 
