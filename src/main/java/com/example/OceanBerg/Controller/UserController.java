@@ -63,7 +63,7 @@ public class UserController {
 		}
 	}
 
-	@GetMapping("/getCoursesById")
+	@GetMapping("/getCoursesByUserId")
 	public ResponseEntity<List<Courses>> getCoursesByUserId(@RequestHeader("Authorization") String token) {
 		try {
 			String jwtToken = token.substring(7);
