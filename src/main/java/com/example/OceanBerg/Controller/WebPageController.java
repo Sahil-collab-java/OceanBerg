@@ -40,5 +40,10 @@ public class WebPageController {
 	public String profile() {
 		return "UserDetails"; 
 	}
+	
+	@GetMapping("/CoursesPage")
+	public String coursesPage() {
+		return "Courses/coursesPage"; 
+	}
 
 }
