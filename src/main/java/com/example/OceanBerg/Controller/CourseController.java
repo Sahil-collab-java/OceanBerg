@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.OceanBerg.Model.Courses;
 import com.example.OceanBerg.Service.CourseService;
 
-@RestController
+@Controller
 public class CourseController {
 
 	@Autowired
@@ -53,6 +54,7 @@ public class CourseController {
 		}
 	}
 	
+	
 	@DeleteMapping("/deleteCourse/{id}")
     public ResponseEntity<String> deleteCourse(@PathVariable Long id) {
         try {
@@ -62,5 +64,11 @@ public class CourseController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+	
+//	@GetMapping("/coursepv/{id}")
+//	public String coursepv(@PathVariable Long id) {
+//		System.out.println("courses id to print"+id.toString());
+//		return"Courses/coursepv";
+//	}
 
 }

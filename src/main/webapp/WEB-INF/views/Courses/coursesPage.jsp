@@ -193,244 +193,7 @@
 <!-- 					</div> -->
 <!-- 				</div> -->
 
-				<!--             Course 2 -->
-<!--             <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s"> -->
-<!--                 <div class="course-item bg-light"> -->
-<!--                     <div class="position-relative overflow-hidden"> -->
-<!--                         <img class="img-fluid" src="img/course-2.jpg" alt=""> -->
-<!--                         <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4"> -->
-<!--                             <a href="/readMe2" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Read More</a> -->
-<!--                             <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3 joinNowButton"  -->
-<!--                             data-course-name="Java Development Course for Beginners" data-page-mapping="/syllabus2Page" style="border-radius: 0 30px 30px 0;">Join Now</a> -->
-<!--                         </div> -->
-<!--                     </div> -->
-<!--                     <div class="text-center p-4 pb-0"> -->
-<!--                     <a href="/syllabus2Page"> -->
-<!--                         <h5 class="mb-4">Java Development Course for Beginners</h5> -->
-<!--                         </a> -->
-<!--                     </div> -->
-<!--                     <div class="d-flex border-top"> -->
-<!--                         <small class="flex-fill text-center border-end py-2"><i class="fa fa-user-tie text-primary me-2"></i>John Doe</small> -->
-<!--                         <small class="flex-fill text-center border-end py-2"><i class="fa fa-clock text-primary me-2"></i>1.49 Hrs</small> -->
-<!--                         <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>30 Students</small> -->
-<!--                     </div> -->
-<!--                 </div> -->
-<!--             </div> -->
-
-<!--             Course 3 -->
-<!--             <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s"> -->
-<!--                 <div class="course-item bg-light"> -->
-<!--                     <div class="position-relative overflow-hidden"> -->
-<!--                         <img class="img-fluid" src="img/course-3.jpg" alt=""> -->
-<!--                         <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4"> -->
-<!--                             <a href="/readMe3" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Read More</a> -->
-<!--                             <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3 joinNowButton" data-course-name="Python Development Course for Beginners" data-page-mapping="/syllabus3Page" style="border-radius: 0 30px 30px 0;">Join Now</a> -->
-<!--                         </div> -->
-<!--                     </div> -->
-<!--                     <div class="text-center p-4 pb-0"> -->
-<!--                     <a href="/syllabus3Page" >  -->
-<!--                         <h5 class="mb-4">Python Development Course for Beginners</h5> -->
-<!--                         </a> -->
-<!--                     </div> -->
-<!--                     <div class="d-flex border-top"> -->
-<!--                         <small class="flex-fill text-center border-end py-2"><i class="fa fa-user-tie text-primary me-2"></i>John Doe</small> -->
-<!--                         <small class="flex-fill text-center border-end py-2"><i class="fa fa-clock text-primary me-2"></i>1.49 Hrs</small> -->
-<!--                         <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>30 Students</small> -->
-<!--                     </div> -->
-<!--                 </div> -->
-<!--             </div> -->
-            
-            
-<!--              <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s"> -->
-<!--                 <div class="course-item bg-light"> -->
-<!--                     <div class="position-relative overflow-hidden"> -->
-<!--                         <img class="img-fluid" src="img/course-1.jpg" alt=""> -->
-<!--                         <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4"> -->
-<!--                             <a href="/readMe1" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Read More</a> -->
-<!--                             <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3 joinNowButton" data-course-name="Web Design & Development Course for Beginners" data-page-mapping="/webdevelopment" style="border-radius: 0 30px 30px 0;">Join Now</a> -->
-<!--                         </div> -->
-<!--                     </div> -->
-<!--                     <div class="text-center p-4 pb-0"> -->
-<!--                         <h5 class="mb-4">Computer Fundamental</h5> -->
-<!--                     </div> -->
-<!--                     <div class="d-flex border-top"> -->
-<!--                         <small class="flex-fill text-center border-end py-2"><i class="fa fa-user-tie text-primary me-2"></i>John Doe</small> -->
-<!--                         <small class="flex-fill text-center border-end py-2"><i class="fa fa-clock text-primary me-2"></i>1.49 Hrs</small> -->
-<!--                         <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>30 Students</small> -->
-<!--                     </div> -->
-<!--                 </div> -->
-<!--             </div> -->
-            
-<!--             Course 2 -->
-<!--             <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s"> -->
-<!--                 <div class="course-item bg-light"> -->
-<!--                     <div class="position-relative overflow-hidden"> -->
-<!--                         <img class="img-fluid" src="img/course-2.jpg" alt=""> -->
-<!--                         <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4"> -->
-<!--                             <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Read More</a> -->
-<!--                             <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3 joinNowButton" data-course-name="Java Development Course for Beginners" data-page-mapping="/javadevelopment" style="border-radius: 0 30px 30px 0;">Join Now</a> -->
-<!--                         </div> -->
-<!--                     </div> -->
-<!--                     <div class="text-center p-4 pb-0"> -->
-<!--                         <h5 class="mb-4">Hardware & Networking</h5> -->
-<!--                     </div> -->
-<!--                     <div class="d-flex border-top"> -->
-<!--                         <small class="flex-fill text-center border-end py-2"><i class="fa fa-user-tie text-primary me-2"></i>John Doe</small> -->
-<!--                         <small class="flex-fill text-center border-end py-2"><i class="fa fa-clock text-primary me-2"></i>1.49 Hrs</small> -->
-<!--                         <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>30 Students</small> -->
-<!--                     </div> -->
-<!--                 </div> -->
-<!--             </div> -->
-            
-<!--             <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s"> -->
-<!--                 <div class="course-item bg-light"> -->
-<!--                     <div class="position-relative overflow-hidden"> -->
-<!--                         <img class="img-fluid" src="img/course-3.jpg" alt=""> -->
-<!--                         <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4"> -->
-<!--                             <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Read More</a> -->
-<!--                             <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3 joinNowButton" data-course-name="Python Development Course for Beginners" data-page-mapping="/webdesign" style="border-radius: 0 30px 30px 0;">Join Now</a> -->
-<!--                         </div> -->
-<!--                     </div> -->
-<!--                     <div class="text-center p-4 pb-0"> -->
-<!--                         <h5 class="mb-4">PHP</h5> -->
-<!--                     </div> -->
-<!--                     <div class="d-flex border-top"> -->
-<!--                         <small class="flex-fill text-center border-end py-2"><i class="fa fa-user-tie text-primary me-2"></i>John Doe</small> -->
-<!--                         <small class="flex-fill text-center border-end py-2"><i class="fa fa-clock text-primary me-2"></i>1.49 Hrs</small> -->
-<!--                         <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>30 Students</small> -->
-<!--                     </div> -->
-<!--                 </div> -->
-<!--             </div> -->
-            
-            
-            
-            
-<!--              <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s"> -->
-<!--                 <div class="course-item bg-light"> -->
-<!--                     <div class="position-relative overflow-hidden"> -->
-<!--                         <img class="img-fluid" src="img/course-1.jpg" alt=""> -->
-<!--                         <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4"> -->
-<!--                             <a href="/readMe1" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Read More</a> -->
-<!--                             <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3 joinNowButton" data-course-name="Web Design & Development Course for Beginners" data-page-mapping="/webdevelopment" style="border-radius: 0 30px 30px 0;">Join Now</a> -->
-<!--                         </div> -->
-<!--                     </div> -->
-<!--                     <div class="text-center p-4 pb-0"> -->
-<!--                         <h5 class="mb-4">Angular</h5> -->
-<!--                     </div> -->
-<!--                     <div class="d-flex border-top"> -->
-<!--                         <small class="flex-fill text-center border-end py-2"><i class="fa fa-user-tie text-primary me-2"></i>John Doe</small> -->
-<!--                         <small class="flex-fill text-center border-end py-2"><i class="fa fa-clock text-primary me-2"></i>1.49 Hrs</small> -->
-<!--                         <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>30 Students</small> -->
-<!--                     </div> -->
-<!--                 </div> -->
-<!--             </div> -->
-            
-<!--             Course 2 -->
-<!--             <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s"> -->
-<!--                 <div class="course-item bg-light"> -->
-<!--                     <div class="position-relative overflow-hidden"> -->
-<!--                         <img class="img-fluid" src="img/course-2.jpg" alt=""> -->
-<!--                         <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4"> -->
-<!--                             <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Read More</a> -->
-<!--                             <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3 joinNowButton" data-course-name="Java Development Course for Beginners" data-page-mapping="/javadevelopment" style="border-radius: 0 30px 30px 0;">Join Now</a> -->
-<!--                         </div> -->
-<!--                     </div> -->
-<!--                     <div class="text-center p-4 pb-0"> -->
-<!--                         <h5 class="mb-4">React Js</h5> -->
-<!--                     </div> -->
-<!--                     <div class="d-flex border-top"> -->
-<!--                         <small class="flex-fill text-center border-end py-2"><i class="fa fa-user-tie text-primary me-2"></i>John Doe</small> -->
-<!--                         <small class="flex-fill text-center border-end py-2"><i class="fa fa-clock text-primary me-2"></i>1.49 Hrs</small> -->
-<!--                         <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>30 Students</small> -->
-<!--                     </div> -->
-<!--                 </div> -->
-<!--             </div> -->
-            
-<!--             <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s"> -->
-<!--                 <div class="course-item bg-light"> -->
-<!--                     <div class="position-relative overflow-hidden"> -->
-<!--                         <img class="img-fluid" src="img/course-3.jpg" alt=""> -->
-<!--                         <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4"> -->
-<!--                             <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Read More</a> -->
-<!--                             <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3 joinNowButton" data-course-name="Python Development Course for Beginners" data-page-mapping="/webdesign" style="border-radius: 0 30px 30px 0;">Join Now</a> -->
-<!--                         </div> -->
-<!--                     </div> -->
-<!--                     <div class="text-center p-4 pb-0"> -->
-<!--                         <h5 class="mb-4">Cloud Computing</h5> -->
-<!--                     </div> -->
-<!--                     <div class="d-flex border-top"> -->
-<!--                         <small class="flex-fill text-center border-end py-2"><i class="fa fa-user-tie text-primary me-2"></i>John Doe</small> -->
-<!--                         <small class="flex-fill text-center border-end py-2"><i class="fa fa-clock text-primary me-2"></i>1.49 Hrs</small> -->
-<!--                         <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>30 Students</small> -->
-<!--                     </div> -->
-<!--                 </div> -->
-<!--             </div> -->
-            
-            
-            
-            
-<!--              <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s"> -->
-<!--                 <div class="course-item bg-light"> -->
-<!--                     <div class="position-relative overflow-hidden"> -->
-<!--                         <img class="img-fluid" src="img/course-1.jpg" alt=""> -->
-<!--                         <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4"> -->
-<!--                             <a href="/readMe1" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Read More</a> -->
-<!--                             <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3 joinNowButton" data-course-name="Web Design & Development Course for Beginners" data-page-mapping="/webdevelopment" style="border-radius: 0 30px 30px 0;">Join Now</a> -->
-<!--                         </div> -->
-<!--                     </div> -->
-<!--                     <div class="text-center p-4 pb-0"> -->
-<!--                         <h5 class="mb-4">Android App Development</h5> -->
-<!--                     </div> -->
-<!--                     <div class="d-flex border-top"> -->
-<!--                         <small class="flex-fill text-center border-end py-2"><i class="fa fa-user-tie text-primary me-2"></i>John Doe</small> -->
-<!--                         <small class="flex-fill text-center border-end py-2"><i class="fa fa-clock text-primary me-2"></i>1.49 Hrs</small> -->
-<!--                         <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>30 Students</small> -->
-<!--                     </div> -->
-<!--                 </div> -->
-<!--             </div> -->
-            
-<!--             Course 2 -->
-<!--             <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s"> -->
-<!--                 <div class="course-item bg-light"> -->
-<!--                     <div class="position-relative overflow-hidden"> -->
-<!--                         <img class="img-fluid" src="img/course-2.jpg" alt=""> -->
-<!--                         <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4"> -->
-<!--                             <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Read More</a> -->
-<!--                             <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3 joinNowButton" data-course-name="Java Development Course for Beginners" data-page-mapping="/javadevelopment" style="border-radius: 0 30px 30px 0;">Join Now</a> -->
-<!--                         </div> -->
-<!--                     </div> -->
-<!--                     <div class="text-center p-4 pb-0"> -->
-<!--                         <h5 class="mb-4">Digital Marketing</h5> -->
-<!--                     </div> -->
-<!--                     <div class="d-flex border-top"> -->
-<!--                         <small class="flex-fill text-center border-end py-2"><i class="fa fa-user-tie text-primary me-2"></i>John Doe</small> -->
-<!--                         <small class="flex-fill text-center border-end py-2"><i class="fa fa-clock text-primary me-2"></i>1.49 Hrs</small> -->
-<!--                         <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>30 Students</small> -->
-<!--                     </div> -->
-<!--                 </div> -->
-<!--             </div> -->
-            
-<!--             <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s"> -->
-<!--                 <div class="course-item bg-light"> -->
-<!--                     <div class="position-relative overflow-hidden"> -->
-<!--                         <img class="img-fluid" src="img/course-3.jpg" alt=""> -->
-<!--                         <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4"> -->
-<!--                             <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Read More</a> -->
-<!--                             <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3 joinNowButton" data-course-name="Python Development Course for Beginners" data-page-mapping="/webdesign" style="border-radius: 0 30px 30px 0;">Join Now</a> -->
-<!--                         </div> -->
-<!--                     </div> -->
-<!--                     <div class="text-center p-4 pb-0"> -->
-<!--                         <h5 class="mb-4">Graphic Design</h5> -->
-<!--                     </div> -->
-<!--                     <div class="d-flex border-top"> -->
-<!--                         <small class="flex-fill text-center border-end py-2"><i class="fa fa-user-tie text-primary me-2"></i>John Doe</small> -->
-<!--                         <small class="flex-fill text-center border-end py-2"><i class="fa fa-clock text-primary me-2"></i>1.49 Hrs</small> -->
-<!--                         <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>30 Students</small> -->
-<!--                     </div> -->
-<!--                 </div> -->
-<!--             </div> -->
-            
-            
+                        
         </div>
     </div>
 </div>
@@ -548,7 +311,7 @@
                     <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
                         &copy; <a class="border-bottom" href="#">www.oceanberg.org</a>, All Right Reserved.
 
-                        <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                        <!--/*** This template is free as long as you keep the footer authorâs credit link/attribution link/backlink. If you'd like to use the template without the footer authorâs credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
                         Designed By <a class="border-bottom" href="https://htmlcodex.com">Oceanberg Technologies Pvt. Ltd.</a>
                     </div>
                     <div class="col-md-6 text-center text-md-end">
@@ -580,26 +343,26 @@
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
     
-     <script>
-  // JavaScript to capture course name and pass it to the Join Now page
-     document.querySelectorAll('.joinNowButton').forEach(function(button) {
-         button.addEventListener('click', function(event) {
-             event.preventDefault(); // Prevent the default anchor behavior
+<!--      <script> -->
+//   // JavaScript to capture course name and pass it to the Join Now page
+//      document.querySelectorAll('.joinNowButton').forEach(function(button) {
+//          button.addEventListener('click', function(event) {
+//              event.preventDefault(); // Prevent the default anchor behavior
 
-             // Fetch the course name from data attribute
-             var courseName = button.getAttribute('data-course-name');
-             var encodedCourseName = encodeURIComponent(courseName); // Encode the course name to make it URL-safe
+//              // Fetch the course name from data attribute
+//              var courseName = button.getAttribute('data-course-name');
+//              var encodedCourseName = encodeURIComponent(courseName); // Encode the course name to make it URL-safe
 
-             // Fetch the page mapping from data attribute
-             var pageMapping = button.getAttribute('data-page-mapping');
-             var encodedPageMapping = encodeURIComponent(pageMapping); // Encode it to make it URL-safe
+//              // Fetch the page mapping from data attribute
+//              var pageMapping = button.getAttribute('data-page-mapping');
+//              var encodedPageMapping = encodeURIComponent(pageMapping); // Encode it to make it URL-safe
 
-             // Redirect to the Join Now page with both courseName and pageMapping as query parameters
-             window.location.href = "/joinNowPage?courseName=" + encodedCourseName + "&pageMapping=" + encodedPageMapping;
-         });
-     });
+//              // Redirect to the Join Now page with both courseName and pageMapping as query parameters
+//              window.location.href = "/coursepv?courseName=" + encodedCourseName + "&pageMapping=" + encodedPageMapping;
+//          });
+//      });
 
-</script>
+<!-- </script> -->
 
 
   
@@ -645,7 +408,9 @@
                                     <img class="img-fluid" src="img/course-3.jpg" alt="">
                                     <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
                                          
-                                         <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3 joinNowButton" data-course-name=`+course.courseName+`" data-page-mapping="/course${course.course_id}" style="border-radius: 0 30px 30px 0;">Join Now</a>
+//                                          <a href="/coursepv" class="flex-shrink-0 btn btn-sm btn-primary px-3 joinNowButton" data-course-name=`+course.courseName+`" data-page-mapping="/`+course.course_id+`" style="border-radius: 0 30px 30px 0;">Join Now</a>
+                                         <a href="/coursepv" class="joinNowButton" data-course-name=`+course.courseName+`" data-page-mapping="/`+course.course_id+`">Join Now</a>
+
                                     </div>
                                 </div>
                                 <div class="text-center p-4 pb-0">
@@ -674,6 +439,29 @@
     $(document).ready(function() {
         getAllCourses();
     });
+    
+    const joinNowButtons = document.querySelectorAll('.joinNowButton');
+        
+    document.addEventListener("DOMContentLoaded", function () {
+        getAllCourses(); // Fetch courses on page load
+
+        document.getElementById('courses-container').addEventListener('click', function (event) {
+            if (event.target.classList.contains('joinNowButton')) {
+                event.preventDefault(); // Prevent default navigation
+
+                const courseId = event.target.getAttribute('data-page-mapping').replace('/', ''); // Extract Course ID
+                localStorage.setItem('selectedCourseId', courseId); // Store in localStorage
+
+                // ✅ Correct alert syntax
+                alert("You are being redirected to the course preview page for Course ID: " + courseId);
+
+                // Redirect to course preview page
+                window.location.href = "/coursepv";
+            }
+        });
+    });
+
+
 </script>
 
 </html>
