@@ -53,23 +53,35 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="/indexPage" class="nav-item nav-link">Home</a>
-                <a href="/indexPage" class="nav-item nav-link">About</a>
+                <a href="/" class="nav-item nav-link">Home</a>
+                <a  class="nav-item nav-link">About</a>
                 <a href="/CoursesPage" class="nav-item nav-link active">All Courses</a>
                 
-                <a href="/contactPage" class="nav-item nav-link">Contact</a>
+                <a  class="nav-item nav-link">Contact</a>
             </div><div class="dropdown">
-    <button class="btn btn-primary py-4 px-lg-5 d-none d-lg-block dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-        <span>${sessionScope.username != null ? sessionScope.username : "Guest"}</span>
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          
-        <!-- Profile and Logout for logged-in users -->
-        <div th:if="${sessionScope.username != null}">
-            
-             <li><a href="logout" class="dropdown-item"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
-        </div>
-    </ul>
+				<button class="btn btn-primary dropdown-toggle" 
+				            type="button" 
+				            data-bs-toggle="dropdown" 
+				            aria-expanded="false">
+				      <span id="username-display">GUEST</span>
+				  </button>
+				  <ul class="dropdown-menu dropdown-menu-end">
+				      <li id="profile-item" style="display: none;">
+				          <a href="/profile" class="dropdown-item">
+				              <i class="fas fa-user me-2"></i>Profile
+				          </a>
+				      </li>
+				      <li id="logout-item" style="display: none;">
+				          <a href="/logout" class="dropdown-item">
+				              <i class="fas fa-sign-out-alt me-2"></i>Logout
+				          </a>
+				      </li>
+				      <li id="login-item">
+				          <a href="/loginpage" class="dropdown-item">
+				              <i class="fas fa-sign-in-alt me-2"></i>Login
+				          </a>
+				      </li>
+				  </ul>
 </div>
     </nav>
     <!-- Navbar End -->
@@ -604,17 +616,7 @@
 
   
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<!-- <script> -->
-//     document.getElementById("java").addEventListener("click", function (event) {
-//         event.preventDefault(); // Prevent default navigation
-        
-//         // Custom logic here (e.g., AJAX call)
-        
-//         // Redirect to the desired page
-//         window.location.href = "vidoeplayjava";
-//     });
-<!-- </script> -->
+
 </body>
 
 <script type="text/javascript">
@@ -625,9 +627,9 @@
             url: "/getAllCourses",
             type: 'GET',
             contentType: 'application/json',
-            headers: {
-                'Authorization': 'Bearer ' + token
-            },
+			xhrFields: {
+					withCredentials: true  // Include cookies with the request
+						},
             success: function(response) {
                 const coursesContainer = document.getElementById('courses-container');
                 // Clear any existing content
@@ -674,6 +676,55 @@
     $(document).ready(function() {
         getAllCourses();
     });
+</script>
+
+<script>
+function updateDropdownMenu(isLoggedIn, username) {
+    // Update username display
+    document.getElementById('username-display').textContent = isLoggedIn ? username : 'GUEST';
+    
+    // Show/hide menu items based on login status
+    document.getElementById('profile-item').style.display = isLoggedIn ? 'block' : 'none';
+    document.getElementById('logout-item').style.display = isLoggedIn ? 'block' : 'none';
+    document.getElementById('login-item').style.display = isLoggedIn ? 'none' : 'block';
+}
+
+// Call this function when loading user details
+function loadUserDetails() {
+    $.ajax({
+        url: '/api/user',
+        type: 'GET',
+        success: function(response) {
+            if (response && response.name) {
+                updateDropdownMenu(true, response.name);
+                
+                // Update other user details
+                document.getElementById('user-name').innerText = response.name;
+                document.getElementById('user-email').innerText = response.email;
+                document.getElementById('user-address').innerText = response.address;
+                document.getElementById('user-college-name').innerText = response.collagename;
+                document.getElementById('user-mobile-no').innerText = response.mobileno;
+                document.getElementById('user-course-name').innerText = response.coursename;
+                document.getElementById('user-year-no').innerText = response.yearno;
+                document.getElementById('user-gender').innerText = response.gender;
+                document.getElementById('user-dob').innerText = response.dob;
+                document.getElementById('user-state').innerText = response.state;
+                document.getElementById('user-city').innerText = response.city;
+                document.getElementById('user-pincode').innerText = response.pincode;
+            } else {
+                updateDropdownMenu(false);
+            }
+        },
+        error: function() {
+            updateDropdownMenu(false);
+        }
+    });
+}
+
+// Initialize on page load
+$(document).ready(function() {
+    loadUserDetails();
+});
 </script>
 
 </html>
