@@ -29,8 +29,8 @@ import com.example.OceanBerg.Security.JwtTokenUtil;
 @RequestMapping("/auth")
 public class AuthController {
 
-	@Autowired
-	private AuthenticationManager authenticationManager;
+//	@Autowired
+//	private AuthenticationManager authenticationManager;
 
 	@Autowired
 	private JwtTokenUtil jwtTokenUtil;
@@ -51,19 +51,19 @@ public class AuthController {
 		return ResponseEntity.ok("User registered successfully");
 	}
 
-	@PostMapping("/login")
-	public ResponseEntity<?> authenticateUser(@RequestBody AuthRequest authRequest) {
-		try {
-			Authentication authentication = authenticationManager.authenticate(
-					new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword()));
-
-			SecurityContextHolder.getContext().setAuthentication(authentication);
-			String token = jwtTokenUtil.generateToken((UserDetails) authentication.getPrincipal());
-
-			return ResponseEntity.ok(new AuthResponse(token));
-		} catch (BadCredentialsException e) {
-			throw new AuthenticationFailedException("Invalid username or password");
-		}
-	}
+//	@PostMapping("/login")
+//	public ResponseEntity<?> authenticateUser(@RequestBody AuthRequest authRequest) {
+//		try {
+//			Authentication authentication = authenticationManager.authenticate(
+//					new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword()));
+//
+//			SecurityContextHolder.getContext().setAuthentication(authentication);
+//			String token = jwtTokenUtil.generateToken((UserDetails) authentication.getPrincipal());
+//
+//			return ResponseEntity.ok(new AuthResponse(token));
+//		} catch (BadCredentialsException e) {
+//			throw new AuthenticationFailedException("Invalid username or password");
+//		}
+//	}
 
 }

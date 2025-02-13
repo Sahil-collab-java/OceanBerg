@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -221,9 +223,9 @@ body {
 		</button>
 		<div class="collapse navbar-collapse" id="navbarCollapse">
 			<div class="navbar-nav ms-auto p-4 p-lg-0">
-				<a href="/indexPage" class="nav-item nav-link ">Home</a> <a
+				<a href="/" class="nav-item nav-link ">Home</a> <a
 					href="/CoursesPage" class="nav-item nav-link">All Courses</a> <a
-					href="/contactPage" class="nav-item nav-link">Contact</a>
+					 class="nav-item nav-link">Contact</a>
 			</div>
 			<a href="/reg" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Join
 				Now<i class="fa fa-arrow-right ms-3"></i>
@@ -242,35 +244,25 @@ body {
 						<div class="card-body text-center">
 							<h3 class="mb-4">Login</h3>
 
-							<!-- Login info block -->
-							<!--               <div class="login-info-block mb-4 p-4"> -->
-							<!--                 <p class="mb-4"> -->
-							<!--                   Login into OceanBerg using Google, Microsoft, or OceanBerg account. -->
-							<!--                   Users can use Google (Gmail) or Microsoft accounts (MSN, Hotmail, etc.) to log in. -->
-							<!--                   If you haven’t associated with either of these accounts, you must use the -->
-							<!--                   <strong>"Sign up now"</strong> option to create a new OceanBerg account. -->
-							<!--                 </p> -->
-							<!--               </div> -->
+							<!-- Error and logout messages with fade effect -->
+							<div id="message-container">
+								<c:if test="${not empty param.error}">
+									<div class="alert alert-danger alert-dismissible fade show" role="alert">
+										Invalid username or password.
+										<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+									</div>
+								</c:if>
 
-							<!-- Social Login Buttons -->
-							<!--               <div class="mb-4 text-center"> -->
-							<!--                 <p class="mb-3">Sign in with your social account</p> -->
-							<!--                 <div class="d-flex justify-content-center"> -->
-							<!--                   Google Login Button -->
-							<!--                   <a href="#" class="btn btn-danger social-btn google-btn me-3" style="border-radius: 30px;"> -->
-							<!--                     <i class="fab fa-google me-2"></i> Google -->
-							<!--                   </a> -->
-							<!--                   Microsoft Login Button -->
-							<!--                   <a href="#" class="btn btn-primary social-btn microsoft-btn" style="border-radius: 30px;"> -->
-							<!--                     <i class="fab fa-microsoft me-2"></i> Microsoft -->
-							<!--                   </a> -->
-							<!--                 </div> -->
-							<!--                 "or" divider -->
-							<!--                 <p class="mt-3">- or -</p> -->
-							<!--               </div> -->
+								<c:if test="${not empty param.logout}">
+									<div class="alert alert-success alert-dismissible fade show" role="alert">
+										You have been logged out successfully.
+										<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+									</div>
+								</c:if>
+							</div>
 
 							<!-- Username and Password Form -->
-							<form id="loginForm">
+							<form action="${pageContext.request.contextPath}/perform_login" method="post">
 								<p class="mb-3 text-center">Sign in with your username</p>
 
 								<!-- Username input field -->
@@ -301,7 +293,7 @@ body {
 							<p class="mt-3">- or -</p>
 
 							<p class="mb-0">
-								Don&apos;t have an account? <a href="/reg" class="sign-up-link">Sign
+								Don't have an account? <a href="/reg" class="sign-up-link">Sign
 									up now</a>
 							</p>
 
@@ -391,7 +383,7 @@ body {
 						&copy; <a class="border-bottom" href="#">www.oceanberg.org</a>,
 						All Right Reserved.
 
-						<!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+						<!--/*** This template is free as long as you keep the footer author's credit link/attribution link/backlink. If you'd like to use the template without the footer author's credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
 						Designed By <a class="border-bottom" href="https://htmlcodex.com">Oceanberg
 							Technologies Pvt. Ltd.</a>
 					</div>
@@ -411,7 +403,6 @@ body {
 	<a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i
 		class="bi bi-arrow-up"></i></a>
 
-
 	<!-- JavaScript Libraries -->
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 	<script
@@ -424,58 +415,17 @@ body {
 	<!-- Template Javascript -->
 	<script src="js/main.js"></script>
 
+	<!-- Add this script at the bottom of your page, before closing body tag -->
 	<script>
-    // Login form submission logic (optional)
-    document.getElementById('loginForm').addEventListener('submit', function(event) {
-      event.preventDefault();
-    });
-  </script>
-
-	<script>
-  document.getElementById("loginForm").addEventListener("submit", async function (event) {
-    event.preventDefault(); // Prevent default form submission
-
-    const username = document.getElementById("username").value.trim();
-    const password = document.getElementById("password").value.trim();
-
-    if (!username || !password) {
-      alert("Username and password are required.");
-      return;
-    }
-    
-    
-    
-
-    $.ajax({
-        url: '/auth/login',
-        type: 'POST',
-        contentType: 'application/json',
-        data: JSON.stringify({ username: username, password: password }),
-        success: function(response) {
-          // alert(response.token)
-            localStorage.setItem('jwtToken', response.token); 
-          window.location.href = '/profile'; 
-           // fetchProfileWithToken(response.token);
-          
-        },
-        error: function(xhr, status, error) {
-            alert('Login failed: ' + xhr.responseText);
-        }
-    });
-    
-  });
-  
-  
-  
-  
-  
- 
-
-  
-  
-</script>
-
-
+		// Auto-hide alerts after 5 seconds
+		$(document).ready(function() {
+			setTimeout(function() {
+				$('.alert').fadeOut('slow', function() {
+					$(this).remove();
+				});
+			}, 5000);
+		});
+	</script>
 
 </body>
 </html>
