@@ -3,7 +3,7 @@ package com.example.OceanBerg.Model;
 import lombok.Data;
 import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.util.Date;
 
@@ -16,12 +16,12 @@ public class Enrollment {
     
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
-    @JsonManagedReference
+    @JsonIgnore
     private User user;
 
     @ManyToOne
     @JoinColumn(name = "course_id", nullable = false)
-    @JsonManagedReference
+    @JsonIgnore
     private Courses course;
     
     private Date enrollmentDate;

@@ -3,9 +3,21 @@ package com.example.OceanBerg.Service;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.UUID;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import java.nio.file.StandardCopyOption;
+import java.io.File;
+import org.springframework.web.multipart.MultipartFile;
+import org.apache.commons.fileupload.disk.DiskFileItem;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
+
 
 import com.example.OceanBerg.Model.Courses;
 import com.example.OceanBerg.Model.Documents;
@@ -13,9 +25,13 @@ import com.example.OceanBerg.Model.Syllabus;
 import com.example.OceanBerg.Repo.CourseRepository;
 import com.example.OceanBerg.Repo.DocumentRepository;
 import com.example.OceanBerg.Repo.SyllabusRepository;
+import com.example.OceanBerg.Exception.FileProcessingException;
 
 @Service
 public class CourseService {
+
+	@Value("${file.upload-dir:src/main/webapp/images/courses}")
+	private String uploadDir;
 
 	@Autowired
 	private CourseRepository courseRepository;
@@ -83,8 +99,8 @@ public class CourseService {
 				syllabus.setCourse(course);
 				syllabus.setTopicNumber(syllabusDetails.getTopicNumber());
 				syllabus.setTopicName(syllabusDetails.getTopicName());
-				syllabus.setVideoTitle(syllabusDetails.getVideoTitle());
-				syllabus.setVideoUrl(syllabusDetails.getVideoUrl());
+//				syllabus.setVideoTitle(syllabusDetails.getVideoTitle());
+//				syllabus.setVideoUrl(syllabusDetails.getVideoUrl());
 				return syllabus;
 			}).collect(Collectors.toList());
 			course.setSyllabus(updatedSyllabus);
@@ -112,6 +128,44 @@ public class CourseService {
 
 	public void deleteCourse(Long id) {
 		courseRepository.deleteById(id);
+	}
+
+	public Courses addCourseWithImage(MultipartFile image, String courseJson) throws IOException {
+		try {
+			ObjectMapper mapper = new ObjectMapper();
+			Courses course = mapper.readValue(courseJson, Courses.class);
+
+			String fileName = UUID.randomUUID() + "_" + image.getOriginalFilename();
+			Path uploadPath = Paths.get(uploadDir);
+			
+			if (!Files.exists(uploadPath)) {
+				Files.createDirectories(uploadPath);
+			}
+
+			Path filePath = uploadPath.resolve(fileName);
+			
+			// Use Files.copy with REPLACE_EXISTING option
+			Files.copy(image.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
+
+			course.setImagePath("/images/courses/" + fileName);
+			return courseRepository.save(course);
+			
+		} catch (IOException e) {
+			throw new FileProcessingException("Failed to process file: " + e.getMessage());
+		} finally {
+			// Ensure the temporary file is deleted
+			if (image != null && !image.isEmpty()) {
+				try {
+					File tempFile = ((DiskFileItem) ((CommonsMultipartFile) image).getFileItem()).getStoreLocation();
+					if (tempFile != null && tempFile.exists()) {
+						tempFile.delete();
+					}
+				} catch (Exception e) {
+					// Log the error but don't throw it
+					System.err.println("Failed to delete temporary file: " + e.getMessage());
+				}
+			}
+		}
 	}
 
 }

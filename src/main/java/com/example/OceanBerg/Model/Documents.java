@@ -16,7 +16,7 @@ public class Documents {
 
     @ManyToOne
     @JoinColumn(name = "course_id")
-    @JsonBackReference
+    @JsonBackReference("course-documents")
     private Courses course;
 
     private String documentName;
