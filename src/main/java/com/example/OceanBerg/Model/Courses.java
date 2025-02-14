@@ -4,6 +4,7 @@ import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
 
@@ -26,16 +27,17 @@ public class Courses {
     private int reviewsCount;
     private String instructorName;
     private int totalStudents;
+    private String imagePath; 
 
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
-    @JsonManagedReference
+    @JsonManagedReference("course-syllabus")
     private List<Syllabus> syllabus;
 
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
-    @JsonManagedReference
+    @JsonManagedReference("course-documents")
     private List<Documents> documents;
 
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
-    @JsonBackReference
+    @JsonIgnore
     private List<Enrollment> enrollments;
 }

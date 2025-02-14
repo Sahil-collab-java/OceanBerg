@@ -41,50 +41,52 @@
     <!-- Spinner End -->
 
 
-    <!-- Navbar Start -->
-    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
-       <a href="/indexPage" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-            <h2 class="m-0 text-primary">
-    <img src="img/Oceanberg_logo.PNG"  style="height: 60px; width: auto; margin-right: 20px;">
-    <!--<i class="fa fa-book me-3"></i>-->Oceanberg Technologies
+   
+
+  <!--Navbar Start -->
+  <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+    <a href="/" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+         <h2 class="m-0 text-primary">
+ <img src="img/Oceanberg_logo.PNG"  style="height: 60px; width: auto; margin-right: 20px;">
+ <!--<i class="fa fa-book me-3"></i>-->Oceanberg Technologies
 </h2>         </a>
-        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="/" class="nav-item nav-link">Home</a>
-                <a  class="nav-item nav-link">About</a>
-                <a href="/CoursesPage" class="nav-item nav-link active">All Courses</a>
-                
-                <a  class="nav-item nav-link">Contact</a>
-            </div><div class="dropdown">
-				<button class="btn btn-primary dropdown-toggle" 
-				            type="button" 
-				            data-bs-toggle="dropdown" 
-				            aria-expanded="false">
-				      <span id="username-display">GUEST</span>
-				  </button>
-				  <ul class="dropdown-menu dropdown-menu-end">
-				      <li id="profile-item" style="display: none;">
-				          <a href="/profile" class="dropdown-item">
-				              <i class="fas fa-user me-2"></i>Profile
-				          </a>
-				      </li>
-				      <li id="logout-item" style="display: none;">
-				          <a href="/logout" class="dropdown-item">
-				              <i class="fas fa-sign-out-alt me-2"></i>Logout
-				          </a>
-				      </li>
-				      <li id="login-item">
-				          <a href="/loginpage" class="dropdown-item">
-				              <i class="fas fa-sign-in-alt me-2"></i>Login
-				          </a>
-				      </li>
-				  </ul>
+     <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+         <span class="navbar-toggler-icon"></span>
+     </button>
+     <div class="collapse navbar-collapse" id="navbarCollapse">
+         <div class="navbar-nav ms-auto p-4 p-lg-0">
+             <a href="/" class="nav-item nav-link">Home</a>
+             <a  class="nav-item nav-link">About</a>
+             <a href="/CoursesPage" class="nav-item nav-link active">All Courses</a>
+             
+             <a  class="nav-item nav-link">Contact</a>
+         </div><div class="dropdown">
+             <button class="btn btn-primary dropdown-toggle" 
+                         type="button" 
+                         data-bs-toggle="dropdown" 
+                         aria-expanded="false">
+                   <span id="username-display">GUEST</span>
+               </button>
+               <ul class="dropdown-menu dropdown-menu-end">
+                   <li id="profile-item" style="display: none;">
+                       <a href="/profile" class="dropdown-item">
+                           <i class="fas fa-user me-2"></i>Profile
+                       </a>
+                   </li>
+                   <li id="logout-item" style="display: none;">
+                       <a href="/logout" class="dropdown-item">
+                           <i class="fas fa-sign-out-alt me-2"></i>Logout
+                       </a>
+                   </li>
+                   <li id="login-item">
+                       <a href="/loginpage" class="dropdown-item">
+                           <i class="fas fa-sign-in-alt me-2"></i>Login
+                       </a>
+                   </li>
+               </ul>
 </div>
-    </nav>
-    <!-- Navbar End -->
+ </nav>
+ <!-- Navbar End -->
 
 
     <!-- Header Start -->
@@ -104,7 +106,7 @@
             </div>
         </div>
     </div>
-    <!-- Header End -->
+    <!-- Header End
 
 
     <!-- Categories Start -->
@@ -644,7 +646,7 @@
                         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                             <div class="course-item bg-light">
                                 <div class="position-relative overflow-hidden">
-                                    <img class="img-fluid" src="img/course-3.jpg" alt="">
+                                    <img class="img-fluid" src=`+course.imagePath+` alt=""  style="width: 100%; height: 250px; object-fit: cover;">
                                     <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
                                          
                                          <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3 joinNowButton" data-course-name=`+course.courseName+`" data-page-mapping="/course${course.course_id}" style="border-radius: 0 30px 30px 0;">Join Now</a>
@@ -678,7 +680,7 @@
     });
 </script>
 
-<script>
+ <script>
 function updateDropdownMenu(isLoggedIn, username) {
     // Update username display
     document.getElementById('username-display').textContent = isLoggedIn ? username : 'GUEST';
@@ -725,6 +727,6 @@ function loadUserDetails() {
 $(document).ready(function() {
     loadUserDetails();
 });
-</script>
+</script> 
 
 </html>
