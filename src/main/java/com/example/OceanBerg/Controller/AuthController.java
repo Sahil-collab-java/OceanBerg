@@ -12,21 +12,26 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
+import com.example.OceanBerg.Binding.ApiResponse;
 import com.example.OceanBerg.Binding.AuthRequest;
-import com.example.OceanBerg.Binding.AuthResponse;
+
 import com.example.OceanBerg.Exception.AuthenticationFailedException;
 import com.example.OceanBerg.Exception.UserAlreadyExistsException;
 import com.example.OceanBerg.Model.User;
 import com.example.OceanBerg.Repo.UserRepository;
 import com.example.OceanBerg.Security.JwtTokenUtil;
+import com.example.OceanBerg.Service.UserService;
+
 
 @RestController
-@RequestMapping("/auth")
 public class AuthController {
 
 //	@Autowired
@@ -37,18 +42,53 @@ public class AuthController {
 
 	@Autowired
 	private UserRepository userRepository;
+	
+	@Autowired
+	private UserService userService;
+
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 
 	@PostMapping("/register")
-	public ResponseEntity<?> registerUser(@RequestBody User user) {
-		if (userRepository.findByUsername(user.getUsername()).isPresent()) {
-			throw new UserAlreadyExistsException("Username is already taken");
-		}
-		if (userRepository.findByEmail(user.getEmail()).isPresent()) {
-			throw new UserAlreadyExistsException("Email is already taken");
-		}
-		user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
-		userRepository.save(user);
-		return ResponseEntity.ok("User registered successfully");
+	public ResponseEntity<?> registerUser(@Validated @RequestBody User user) {
+		
+			// Validate required fields
+			if (user.getUsername() == null || user.getEmail() == null || user.getPassword() == null) {
+				return ResponseEntity
+					.badRequest()
+					.body(new ApiResponse(false, "Username, email and password are required"));
+			}
+
+			// Check if username exists
+			if (userService.getUserByEmail(user.getUsername()).isPresent()) {
+				return ResponseEntity
+					.badRequest()
+					.body(new ApiResponse(false, "Username is already taken"));
+			}
+
+			// Check if email exists
+			if (userService.getUserByUsername(user.getEmail()).isPresent()) {
+				return ResponseEntity
+					.badRequest()
+					.body(new ApiResponse(false, "Email is already registered"));
+			}
+
+			// Set default role if not provided
+			if (user.getRole() == null || user.getRole().isEmpty()) {
+				user.setRole("ROLE_STUDENT");
+			}
+
+			// Encode password
+			user.setPassword(passwordEncoder.encode(user.getPassword()));
+
+			// Save user
+			User savedUser = userRepository.save(user);
+
+			return ResponseEntity
+				.ok()
+				.body(new ApiResponse(true, "User registered successfully"));
+
+		} 
 	}
 
 //	@PostMapping("/login")
@@ -66,4 +106,4 @@ public class AuthController {
 //		}
 //	}
 
-}
+

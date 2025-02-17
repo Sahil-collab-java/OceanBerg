@@ -34,55 +34,139 @@
 
 <!-- Template Stylesheet -->
 <link href="css/style.css" rel="stylesheet">
+
+<!-- Add this in the head section -->
 <style>
-.form-outline .form-control:focus ~ label, .form-outline .form-control:not(:placeholder-shown) 
-	 ~ label {
-	transform: translateY(-24px);
-	font-size: 0.9rem;
-	color: #06bbcc;
-}
-
-.form-outline label {
-	transition: all 0.2s ease;
-}
-
-.form-outline .form-control:focus {
-	border-color: #06bbcc;
-	box-shadow: none;
-}
+	.error-feedback {
+		color: red;
+		font-size: 0.875em;
+		margin-top: 0.25rem;
+	}
+	
+	.success-feedback {
+		color: green;
+		font-size: 0.875em;
+		margin-top: 0.25rem;
+	}
+	
+	.form-control.is-invalid {
+		border-color: #dc3545;
+		padding-right: calc(1.5em + 0.75rem);
+		background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+		background-repeat: no-repeat;
+		background-position: right calc(0.375em + 0.1875rem) center;
+		background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+	}
+	
+	.form-control.is-valid {
+		border-color: #198754;
+		padding-right: calc(1.5em + 0.75rem);
+		background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23198754' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
+		background-repeat: no-repeat;
+		background-position: right calc(0.375em + 0.1875rem) center;
+		background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+	}
+	
+	.form-outline {
+		position: relative;
+	}
+	
+	.form-outline .form-control {
+		min-height: calc(3.5rem + 2px);
+		padding: 1.32rem 0.75rem 0.32rem;
+		line-height: 1.25;
+	}
+	
+	.form-outline .form-label {
+		position: absolute;
+		top: 0;
+		left: 0;
+		padding: 1rem 0.75rem;
+		color: rgba(0,0,0,.6);
+		cursor: text;
+		transition: .2s ease-out;
+		transform-origin: 0% 0%;
+	}
+	
+	.form-outline .form-control:focus ~ .form-label,
+	.form-outline .form-control:not(:placeholder-shown) ~ .form-label {
+		transform: translateY(-1rem) translateY(0.1rem) scale(.8);
+		padding: 0 .2rem;
+		background: white;
+	}
+	
+	.form-outline .form-control:focus ~ .form-label {
+		color: #1266f1;
+	}
+	
+	.form-outline .form-control:focus {
+		border-color: #1266f1;
+		box-shadow: inset 0 0 0 1px #1266f1;
+	}
+	
+	/* Remove placeholder when input is focused or has value */
+	.form-outline .form-control:focus::placeholder,
+	.form-outline .form-control:not(:placeholder-shown)::placeholder {
+		opacity: 0;
+	}
+	
+	/* Add margin to error messages */
+	.error-feedback {
+		margin-top: 0.25rem;
+		font-size: 0.875em;
+		color: #dc3545;
+	}
 </style>
+
 </head>
 <body>
 	<section class="h-100 bg-dark">
-		<!-- Navbar Start -->
-		<nav
-			class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
-			<a href="index.html"
-				class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-				<h2 class="m-0 text-primary">
-					<img src="img/Oceanberg_logo.PNG"
-						style="height: 60px; width: auto; margin-right: 20px;">
-					<!--<i class="fa fa-book me-3"></i>-->
-					Oceanberg Technologies
-				</h2>
-			</a>
-			<button type="button" class="navbar-toggler me-4"
-				data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarCollapse">
-				<div class="navbar-nav ms-auto p-4 p-lg-0">
-					<a href="/indexPage" class="nav-item nav-link active">Home</a> <a
-						href="/CoursesPage" class="nav-item nav-link">Courses</a> <a
-						href="/contactPage" class="nav-item nav-link">Contact</a>
-				</div>
-				<a href="/loginpage"
-					class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Sign-In<i
-					class="fa fa-arrow-right ms-3"></i></a>
-
-			</div>
-		</nav>
-		<!-- Navbar End -->
+	
+		  <!--Navbar Start -->
+		  <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+		    <a href="/" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+		         <h2 class="m-0 text-primary">
+		 <img src="img/Oceanberg_logo.PNG"  style="height: 60px; width: auto; margin-right: 20px;">
+		 <!--<i class="fa fa-book me-3"></i>-->Oceanberg Technologies
+		</h2>         </a>
+		     <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+		         <span class="navbar-toggler-icon"></span>
+		     </button>
+		     <div class="collapse navbar-collapse" id="navbarCollapse">
+		         <div class="navbar-nav ms-auto p-4 p-lg-0">
+		             <a href="/" class="nav-item nav-link">Home</a>
+		             <a  class="nav-item nav-link">About</a>
+		             <a href="/CoursesPage" class="nav-item nav-link active">All Courses</a>
+		             
+		             <a  class="nav-item nav-link">Contact</a>
+		         </div><div class="dropdown">
+		             <button class="btn btn-primary dropdown-toggle" 
+		                         type="button" 
+		                         data-bs-toggle="dropdown" 
+		                         aria-expanded="false">
+		                   <span id="username-display">GUEST</span>
+		               </button>
+		               <ul class="dropdown-menu dropdown-menu-end">
+		                   <li id="profile-item" style="display: none;">
+		                       <a href="/profile" class="dropdown-item">
+		                           <i class="fas fa-user me-2"></i>Profile
+		                       </a>
+		                   </li>
+		                   <li id="logout-item" style="display: none;">
+		                       <a href="/logout" class="dropdown-item">
+		                           <i class="fas fa-sign-out-alt me-2"></i>Logout
+		                       </a>
+		                   </li>
+		                   <li id="login-item">
+		                       <a href="/loginpage" class="dropdown-item">
+		                           <i class="fas fa-sign-in-alt me-2"></i>Login
+		                       </a>
+		                   </li>
+		               </ul>
+		</div>
+		 </nav>
+		 <!-- Navbar End -->
+		 
 		<div class="container py-5 h-100">
 			<div
 				class="row d-flex justify-content-center align-items-center h-100">
@@ -175,6 +259,39 @@
 											class="form-control form-control-lg"
 											placeholder="Enter your college name" required /> <label
 											class="form-label" for="collagename">College Name</label>
+									</div>
+
+									<div class="form-outline mb-4">
+										<input type="number" id="age" name="age"
+											class="form-control form-control-lg"
+											placeholder="Enter your age" required />
+										<label class="form-label" for="age">Age</label>
+									</div>
+
+									<div class="form-outline mb-4">
+										<input type="text" id="yearno" name="yearno"
+											class="form-control form-control-lg"
+											placeholder="Enter your year" required />
+										<label class="form-label" for="yearno">Year</label>
+									</div>
+
+									<div class="row">
+										<div class="col-md-6 mb-4">
+											<div class="form-outline">
+												<input type="text" id="state" name="state"
+													class="form-control form-control-lg"
+													placeholder="Enter your state" required />
+												<label class="form-label" for="state">State</label>
+											</div>
+										</div>
+										<div class="col-md-6 mb-4">
+											<div class="form-outline">
+												<input type="text" id="city" name="city"
+													class="form-control form-control-lg"
+													placeholder="Enter your city" required />
+												<label class="form-label" for="city">City</label>
+											</div>
+										</div>
 									</div>
 
 									<div class="form-outline mb-4">
@@ -316,7 +433,7 @@
 							&copy; <a class="border-bottom" href="#">www.oceanberg.org</a>,
 							All Right Reserved.
 
-							<!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+							<!--/*** This template is free as long as you keep the footer author's credit link/attribution link/backlink. If you'd like to use the template without the footer author's credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
 							Designed By <a class="border-bottom" href="https://htmlcodex.com">Oceanberg
 								Technologies Pvt. Ltd.</a>
 						</div>
@@ -354,95 +471,189 @@
 	<script>
 	
 	function validateFormData(formData) {
-	    // Check if any field is empty
-	    for (const key in formData) {
-	        if (formData[key] === undefined || formData[key] === null || formData[key].trim() === '') {
-	            alert(`Please fill out the ${key} field.`);
+	    // Required fields check
+	    const requiredFields = [
+	        'name', 'email', 'mobileno', 'username', 'password',
+	        'collagename', 'address', 'gender', 'pincode', 'dob'
+	    ];
+
+	    for (const field of requiredFields) {
+	        if (!formData[field] || formData[field].trim() === '') {
+	            showError('Please fill out the ' + field.replace(/([A-Z])/g, ' $1').toLowerCase() + ' field.');
 	            return false;
 	        }
 	    }
 
-	    // Validate email format
-	    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+	    // Email validation
+	    const emailPattern = new RegExp('^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$');
 	    if (!emailPattern.test(formData.email)) {
-	        alert('Please enter a valid email address.');
+	        showError('Please enter a valid email address.');
 	        return false;
 	    }
 
-	    // Validate mobile number (example: 10 digits)
-	    const mobilePattern = /^\d{10}$/;
+	    // Mobile number validation (10 digits)
+	    const mobilePattern = new RegExp('^[6-9]\\d{9}$');
 	    if (!mobilePattern.test(formData.mobileno)) {
-	        alert('Please enter a valid 10-digit mobile number.');
+	        showError('Please enter a valid 10-digit mobile number starting with 6-9.');
 	        return false;
 	    }
 
-	    // Validate pincode (example: 6 digits)
-	    const pincodePattern = /^\d{6}$/;
+	    // Password strength validation
+	    const passwordPattern = new RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$');
+	    if (!passwordPattern.test(formData.password)) {
+	        showError('Password must contain at least 8 characters, including uppercase, lowercase, number and special character.');
+	        return false;
+	    }
+
+	    // Pincode validation
+	    const pincodePattern = new RegExp('^\\d{6}$');
 	    if (!pincodePattern.test(formData.pincode)) {
-	        alert('Please enter a valid 6-digit pincode.');
+	        showError('Please enter a valid 6-digit pincode.');
 	        return false;
 	    }
 
-	    // Check if gender is selected
-	    if (!formData.gender) {
-	        alert('Please select a gender.');
+	    // Age validation based on DOB
+	    const dob = new Date(formData.dob);
+	    const today = new Date();
+	    const age = today.getFullYear() - dob.getFullYear();
+	    if (age < 15 || age > 100) {
+	        showError('Age must be between 15 and 100 years.');
 	        return false;
 	    }
 
-	    // Validate date of birth (example: should not be empty)
-	    if (!formData.dob) {
-	        alert('Please enter your date of birth.');
-	        return false;
-	    }
-
-	    // Validate password (example: minimum 6 characters)
-	    if (formData.password.length < 6) {
-	        alert('Password must be at least 6 characters long.');
-	        return false;
-	    }
-
-	    // Additional custom validations can be added here
-
-	    return true; // If all validations pass
+	    return true;
 	}
-             function saveFormData(event) {
-               event.preventDefault();
 
-             const formData = {
-    		 name: document.getElementById("name").value.trim(),
-             lastName: document.getElementById("lastName").value.trim(),
-             collagename: document.getElementById("collagename").value.trim(),
-             email: document.getElementById("email").value.trim(),
-             mobileno: document.getElementById("mobileno").value.trim(),
-             coursename: document.getElementById("coursename").value.trim(),
-             address: document.getElementById("address").value.trim(),
-             gender: document.querySelector('input[name="gender"]:checked')?.value,
-             username: document.getElementById("username").value.trim(),  
-             password: document.getElementById("password").value.trim(),  
-             pincode: document.getElementById("pincode").value.trim(),
-             dob: document.getElementById("dob").value,
-             role: "student"
-    };
-    
-    if(validateFormData()){
-    	
-    	 $.ajax({
-    	        url: '/auth/register',
-    	        type: 'POST',
-    	        contentType: 'application/json',
-    	        data: JSON.stringify(formData),
-    	        success: function(response) {
-    	            window.location.href = '/loginpage';
-    	        },
-    	        error: function(xhr, status, error) {
-    	            alert('Registration failed: ' + xhr.responseText);
-    	        }
-    	    });
-    }
- 
-}
+	function showError(message) {
+	    const errorDiv = document.getElementById('errorMessage');
+	    if (errorDiv) {
+	        errorDiv.textContent = message;
+	        errorDiv.style.color = 'red';
+	        errorDiv.style.marginBottom = '10px';
+	        errorDiv.scrollIntoView({ behavior: 'smooth' });
+	    } else {
+	        alert(message);
+	    }
+	}
 
-</script>
+	function showSuccess(message) {
+	    const errorDiv = document.getElementById('errorMessage');
+	    if (errorDiv) {
+	        errorDiv.textContent = message;
+	        errorDiv.style.color = 'green';
+	    }
+	}
+
+	function calculateAge(dob) {
+	    const birthDate = new Date(dob);
+	    const today = new Date();
+	    let age = today.getFullYear() - birthDate.getFullYear();
+	    const monthDiff = today.getMonth() - birthDate.getMonth();
+	    
+	    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+	        age--;
+	    }
+	    return age;
+	}
+
+	function saveFormData(event) {
+	    event.preventDefault();
+
+	    const formData = {
+	        name: document.getElementById("name").value.trim(),
+	        lastName: document.getElementById("lastName").value.trim(),
+	        collagename: document.getElementById("collagename").value.trim(),
+	        email: document.getElementById("email").value.trim(),
+	        mobileno: document.getElementById("mobileno").value.trim(),
+	        coursename: document.getElementById("coursename").value.trim(),
+	        address: document.getElementById("address").value.trim(),
+	        gender: document.querySelector('input[name="gender"]:checked')?.value,
+	        username: document.getElementById("username").value.trim(),
+	        password: document.getElementById("password").value.trim(),
+	        pincode: document.getElementById("pincode").value.trim(),
+	        dob: document.getElementById("dob").value,
+	        state: document.getElementById("state").value.trim(),
+	        city: document.getElementById("city").value.trim(),
+	        age: calculateAge(document.getElementById("dob").value),
+	        yearno: document.getElementById("yearno").value.trim(),
+	        role: "ROLE_STUDENT"
+	    };
+
+	    if (validateFormData(formData)) {
+	        const submitButton = document.querySelector('button[onclick="saveFormData(event)"]');
+	        submitButton.disabled = true;
+	        submitButton.textContent = 'Registering...';
+
+	        fetch('/register', {
+	            method: 'POST',
+	            headers: {
+	                'Content-Type': 'application/json',
+	            },
+	            body: JSON.stringify(formData)
+	        })
+	        .then(response => response.json())
+	        .then(data => {
+	            if (data.success) {
+	                showSuccess('Registration successful! Redirecting to login page...');
+	                setTimeout(() => {
+	                    window.location.href = '/loginpage';
+	                }, 2000);
+	            } else {
+	                throw new Error(data.message || 'Registration failed');
+	            }
+	        })
+	        .catch(error => {
+	            showError(error.message);
+	            submitButton.disabled = false;
+	            submitButton.textContent = 'Submit form';
+	        });
+	    }
+	}
+
+	// Add event listeners for real-time validation
+	document.addEventListener('DOMContentLoaded', function() {
+	    // Create error message div if it doesn't exist
+	    if (!document.getElementById('errorMessage')) {
+	        const titleElement = document.querySelector('.mb-5.text-uppercase');
+	        if (titleElement) {
+	            titleElement.insertAdjacentHTML('afterend', 
+	                '<div id="errorMessage" style="margin-bottom: 10px;"></div>'
+	            );
+	        }
+	    }
+
+	    // Add blur event listeners
+	    const email = document.getElementById('email');
+	    if (email) {
+	        email.addEventListener('blur', function() {
+	            const emailPattern = new RegExp('^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$');
+	            if (this.value && !emailPattern.test(this.value.trim())) {
+	                showError('Please enter a valid email address.');
+	            }
+	        });
+	    }
+
+	    const mobile = document.getElementById('mobileno');
+	    if (mobile) {
+	        mobile.addEventListener('blur', function() {
+	            const mobilePattern = new RegExp('^[6-9]\\d{9}$');
+	            if (this.value && !mobilePattern.test(this.value.trim())) {
+	                showError('Please enter a valid 10-digit mobile number starting with 6-9.');
+	            }
+	        });
+	    }
+
+	    const dob = document.getElementById('dob');
+	    if (dob) {
+	        dob.addEventListener('change', function() {
+	            const age = calculateAge(this.value);
+	            if (age < 15 || age > 100) {
+	                showError('Age must be between 15 and 100 years.');
+	            }
+	        });
+	    }
+	});
+	</script>
 
 	<script>
     function checkPassword() {
@@ -477,10 +688,14 @@
         const email = document.getElementById("email").value; // Get email value
         const feedback = document.getElementById("emailFeedback"); // Get feedback element
 
+		//console.log("Checking email:", email);
         if (email) {
-            fetch(`/checkEmail?email=${email}`) // Make GET request to backend
+
+            fetch(`/api/checkEmail?email=`+email) // Make GET request to backend
                 .then(response => response.json()) // Parse JSON response
                 .then(data => {
+
+					//console.log("Email check response:", data);
                     if (data) { // If email exists
                         feedback.textContent = "Email already exists!";
                         feedback.style.color = "red";
@@ -488,33 +703,114 @@
                         feedback.textContent = ""; // Clear feedback if email is available
                     }
                 })
-                .catch(error => console.error("Error checking email:", error));
+                .catch(error =>{console.error("Error checking email:", error)
+					feedback.textContent = "An error occurred while checking the email.";
+				}
+			);
         }
     }
 
     // Check if username exists in the database
-    function checkEmail() {
-    const email = document.getElementById("email").value;
-    const feedback = document.getElementById("emailFeedback");
+    function checkUsername() {
+        const username = document.getElementById("username").value;
+        const feedback = document.getElementById("usernameFeedback");
 
-    if (email) {
-        fetch(`/checkEmail?email=${email}`)
-            .then(response => response.json())
-            .then(data => {
-                // Display message based on API response
-                if (data) {
-                    feedback.textContent = "Email already exists!";
-                } else {
-                    feedback.textContent = "";  // Clear feedback when valid
-                }
-            })
-            .catch(error => {
-                console.log("Error checking email:", error);
-                feedback.textContent = "An error occurred while checking the email.";
-            });
+        if (username) {
+            fetch(`/api/checkUsername?username=`+username)
+                .then(response => response.json())
+                .then(data => {
+                    if (data) {
+                        feedback.textContent = "Username already exists!";
+                    } else {
+                        feedback.textContent = "";
+                    }
+                })
+                .catch(error => {
+                    console.log("Error checking username:", error);
+                    feedback.textContent = "An error occurred while checking the username.";
+                });
+        }
     }
-}
+</script>
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize MDB inputs
+    document.querySelectorAll('.form-outline').forEach(formOutline => {
+        const input = formOutline.querySelector('input');
+        const label = formOutline.querySelector('label');
+
+        // Check initial value
+        if (input.value) {
+            label.classList.add('active');
+        }
+
+        // Handle focus events
+        input.addEventListener('focus', () => {
+            label.classList.add('active');
+        });
+
+        // Handle blur events
+        input.addEventListener('blur', () => {
+            if (!input.value) {
+                label.classList.remove('active');
+            }
+        });
+    });
+});
+</script>
+
+<script>
+	
+	 
+	function updateDropdownMenu(isLoggedIn, username) {
+	    // Update username display
+	    document.getElementById('username-display').textContent = isLoggedIn ? username : 'GUEST';
+	    
+	    // Show/hide menu items based on login status
+	    document.getElementById('profile-item').style.display = isLoggedIn ? 'block' : 'none';
+	    document.getElementById('logout-item').style.display = isLoggedIn ? 'block' : 'none';
+	    document.getElementById('login-item').style.display = isLoggedIn ? 'none' : 'block';
+	}
+
+	// Call this function when loading user details
+	function loadUserDetails() {
+	    $.ajax({
+	        url: '/api/user',
+	        type: 'GET',
+	        success: function(response) {
+	            if (response && response.name) {
+	                updateDropdownMenu(true, response.name);
+	                
+	                // Update other user details
+	                document.getElementById('user-name').innerText = response.name;
+	                document.getElementById('user-email').innerText = response.email;
+	                document.getElementById('user-address').innerText = response.address;
+	                document.getElementById('user-college-name').innerText = response.collagename;
+	                document.getElementById('user-mobile-no').innerText = response.mobileno;
+	                document.getElementById('user-course-name').innerText = response.coursename;
+	                document.getElementById('user-year-no').innerText = response.yearno;
+	                document.getElementById('user-gender').innerText = response.gender;
+	                document.getElementById('user-dob').innerText = response.dob;
+	                document.getElementById('user-state').innerText = response.state;
+	                document.getElementById('user-city').innerText = response.city;
+	                document.getElementById('user-pincode').innerText = response.pincode;
+	            } else {
+	                updateDropdownMenu(false);
+	            }
+	        },
+	        error: function() {
+	            updateDropdownMenu(false);
+	        }
+	    });
+	}
+
+	// Initialize on page load
+	$(document).ready(function() {
+	    loadUserDetails();
+	});
+	
+</script>
 
 
 </body>

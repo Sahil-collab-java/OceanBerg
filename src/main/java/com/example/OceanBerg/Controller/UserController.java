@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.OceanBerg.Model.Courses;
@@ -47,7 +48,7 @@ public class UserController {
 
 		Optional<User> user = userService.getUserByUsername(principal.getName());
 		if (user.isPresent()) {
-			enrollmentService.enrollUserInCourse(user.get().getSerid(), courseId);
+			enrollmentService.enrollUserInCourse(user.get().getUser_id(), courseId);
 			return ResponseEntity.ok("Enrolled Successfully!");
 		}
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found");
@@ -61,9 +62,25 @@ public class UserController {
 
 		Optional<User> user = userService.getUserByUsername(principal.getName());
 		if (user.isPresent()) {
-			List<Courses> courses = enrollmentService.getCoursesByUserId(user.get().getSerid());
+			List<Courses> courses = enrollmentService.getCoursesByUserId(user.get().getUser_id());
 			return ResponseEntity.ok(courses);
 		}
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 	}
+
+	@GetMapping("/checkEmail")
+	public ResponseEntity<Boolean> checkEmail(@RequestParam String email) {
+		Optional<User> user = userService.getUserByEmail(email);
+		return ResponseEntity.ok(user.isPresent());
+	}	
+
+	@GetMapping("/checkUsername")
+	public ResponseEntity<Boolean> checkUsername(@RequestParam String username) {
+		Optional<User> user = userService.getUserByUsername(username);
+		return ResponseEntity.ok(user.isPresent());
+	}		
+
+
+	
+	
 }
