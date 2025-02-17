@@ -782,19 +782,6 @@ document.addEventListener('DOMContentLoaded', function() {
 	            if (response && response.name) {
 	                updateDropdownMenu(true, response.name);
 	                
-	                // Update other user details
-	                document.getElementById('user-name').innerText = response.name;
-	                document.getElementById('user-email').innerText = response.email;
-	                document.getElementById('user-address').innerText = response.address;
-	                document.getElementById('user-college-name').innerText = response.collagename;
-	                document.getElementById('user-mobile-no').innerText = response.mobileno;
-	                document.getElementById('user-course-name').innerText = response.coursename;
-	                document.getElementById('user-year-no').innerText = response.yearno;
-	                document.getElementById('user-gender').innerText = response.gender;
-	                document.getElementById('user-dob').innerText = response.dob;
-	                document.getElementById('user-state').innerText = response.state;
-	                document.getElementById('user-city').innerText = response.city;
-	                document.getElementById('user-pincode').innerText = response.pincode;
 	            } else {
 	                updateDropdownMenu(false);
 	            }
