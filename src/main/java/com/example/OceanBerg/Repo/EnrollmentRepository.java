@@ -10,7 +10,7 @@ import com.example.OceanBerg.Model.Enrollment;
 
 public interface EnrollmentRepository extends JpaRepository<Enrollment, Long> {
 
-	@Query("SELECT e FROM Enrollment e WHERE e.user.serid = :userId")
+	@Query("SELECT e FROM Enrollment e WHERE e.user.user_id = :userId")
 	List<Enrollment> findByUserId(@Param("userId") Long userId);
 
 }

@@ -12,6 +12,7 @@ import java.util.Date;
 public class Enrollment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "enrollment_id")
     private Long enrollmentId;
     
     @ManyToOne
