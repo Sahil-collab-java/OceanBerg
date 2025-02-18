@@ -1,0 +1,399 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  /* display: flex; */
+  height: 100vh;
+}
+
+.container1 {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  width: 100%;
+}
+
+.video-section {
+  background: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* padding-left: 50px;
+  padding-right: 50px; */
+  padding-top: 40px;
+}
+
+.video-section video {
+  width: 100%;
+  max-width: 1200px;
+  height: 500px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.topics-section {
+  background: #f9f9f9;
+  border-left: 1px solid #ddd;
+  overflow-y: auto;
+  max-width: 500px;
+  height: 100%;
+}
+
+.topics-section::-webkit-scrollbar {
+  width: 5px;
+}
+
+.topics-section h2 {
+  margin-top: 0;
+}
+
+.faq-header {
+  font-size: 42px;
+  border-bottom: 1px dotted #ccc;
+  padding: 24px;
+}
+
+.faq-content {
+  margin: 0 auto;
+  margin-right: 20px;
+}
+
+.faq-question {
+  padding: 15px 0;
+  border-bottom: 1px dotted #ccc;
+}
+
+.faq-title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.panel-title {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.plus {
+  font-size: 20px;
+  transition: transform 0.3s ease;
+  transform-origin: center center;
+}
+
+.panel:checked ~ .faq-title-container .plus {
+  transform: rotate(180deg);
+}
+
+.panel-content {
+  font-size: 18px;
+  padding: 10px 0 0 0;
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+
+.panel-content ol {
+  counter-reset: item;
+  padding-left: 0;
+}
+
+.panel-content ol li {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-left: 70px;
+}
+
+.panel-content li::before {
+  content: counter(item) ".";
+  counter-increment: item;
+  position: absolute;
+  left: 50px;
+  bottom: 48px;
+}
+
+.panel-content input[type="checkbox"] {
+  margin-right: 8px;
+  position: absolute;
+  left: 10px;
+  top: 5px;
+}
+
+.panel:checked ~ .panel-content {
+  height: auto;
+  opacity: 1;
+  padding: 10px 0;
+}
+
+.panel {
+  display: none;
+}
+
+.panel-content ol li:hover {
+  color: #2bc7ad;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  font-weight: 300;
+  border-bottom: 2px solid #2bc7ad;
+}
+
+nav {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+  padding-top: 30px;
+}
+
+.nav-button {
+  padding: 10px 20px;
+  cursor: pointer;
+  border: none;
+  font-size: 19px;
+  color: gray;
+  font-weight: 600;
+  transition: background-color 0.3s, color 0.3s;
+  background: none;
+}
+
+.nav-button.active {
+  text-decoration: underline;
+  color: #1ab69d;
+}
+
+.section {
+  display: none;
+  padding: 20px;
+}
+
+.section.active {
+  display: block;
+}
+
+.container2 {
+  margin-left: 45px;
+}
+
+.viewssection {
+  display: flex;
+  gap: 100px;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.ratingsection {
+  display: flex;
+}
+
+.ratingsectionheading {
+  font-weight: 600;
+  /* padding-left: 15px; */
+}
+
+.ratingsectionicon {
+  color: rgb(255, 230, 0);
+  padding-top: 4px;
+  padding-left: 5px;
+}
+
+.ratingdescription {
+  font-weight: 600;
+  color: gray;
+}
+
+.updatesection {
+  padding-top: 30px;
+}
+
+.lastupdatesection {
+  display: flex;
+  gap: 20px;
+}
+
+.languagesection {
+  display: flex;
+  gap: 20px;
+}
+
+.qasection {
+}
+
+.searchmain {
+    display: flex;
+}
+
+.searchcontainer {
+  width: 800px;
+  max-width: 800px;
+}
+
+.qasectionsearchbar {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    outline: none;
+    transition: box-shadow 0.3s ease;
+}
+
+.searchbuttoncontainer {
+    /* padding-top: 10px; */
+    padding-left: 10px;
+}
+
+.searchbutton {
+    border: none;
+    outline: none;
+    background-color: #2bc7ad;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+}
+
+.qafiltersection {
+    display: flex;
+    gap: 100px;
+}
+
+.qafilters {
+    padding-top: 20px;
+}
+
+.qafilters select {
+    width: 200px;
+    height: 50px;
+    padding-top: 10px;
+}
+
+.accordion .accordion-item {
+    border-bottom: 1px solid #e5e5e5;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .accordion .accordion-item button[aria-expanded="true"] {
+    border-bottom: 1px solid #03b5d2;
+  }
+  
+  .accordion button {
+    position: relative;
+    display: block;
+    text-align: left;
+    width: 100%;
+    padding: 1em 0;
+    color: #7288a2;
+    font-size: 1.15rem;
+    font-weight: 400;
+    border: none;
+    background: none;
+    outline: none;
+  }
+  
+  .accordion button:hover,
+  .accordion button:focus {
+    cursor: pointer;
+    color: #03b5d2;
+  }
+  
+  .accordion button:hover::after,
+  .accordion button:focus::after {
+    cursor: pointer;
+    color: #03b5d2;
+    /* border: 1px solid #03b5d2; */
+  }
+  
+  .accordion button .accordion-title {
+    padding: 1em 1.5em 1em 0;
+  }
+  
+  .accordion button .icon {
+    display: inline-block;
+    position: absolute;
+    top: 18px;
+    right: 0;
+    width: 22px;
+    height: 22px;
+    /* border: 1px solid; */
+    border-radius: 22px;
+  }
+  
+  .accordion button .icon::before {
+    display: block;
+    position: absolute;
+    content: "";
+    top: 9px;
+    left: 5px;
+    width: 10px;
+    height: 2px;
+    background: currentColor;
+  }
+  
+  .accordion button .icon::after {
+    display: block;
+    position: absolute;
+    content: "";
+    top: 5px;
+    left: 9px;
+    width: 2px;
+    height: 10px;
+    background: currentColor;
+  }
+  
+  .accordion button[aria-expanded="true"] {
+    color: #03b5d2;
+  }
+  
+  .accordion button[aria-expanded="true"] .icon::after {
+    width: 0;
+  }
+  
+  .accordion button[aria-expanded="true"] + .accordion-content {
+    opacity: 1;
+    max-height: 9em;
+    transition: all 200ms linear;
+    will-change: opacity, max-height;
+  }
+  
+  .accordion .accordion-content {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 200ms linear, max-height 200ms linear;
+    will-change: opacity, max-height;
+  }
+  
+  .accordion .accordion-content p {
+    font-size: 1rem;
+    font-weight: 300;
+    margin: 2em 0;
+  }
+  
+
+@media screen and (max-width: 1024px) {
+  .container1 {
+    grid-template-columns: 2fr;
+  }
+
+  .video-section {
+    background: #f9f9f9;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .video-section video {
+    width: 100%;
+    max-width: 700px;
+    height: 300px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .searchcontainer {
+    width: 400px;
+    max-width: 800px;
+  }
+}

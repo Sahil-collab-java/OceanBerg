@@ -78,7 +78,25 @@ public class UserController {
 	public ResponseEntity<Boolean> checkUsername(@RequestParam String username) {
 		Optional<User> user = userService.getUserByUsername(username);
 		return ResponseEntity.ok(user.isPresent());
-	}		
+	}	
+	
+	@PostMapping("/check/{courseId}")
+	public ResponseEntity<Boolean> checkUserInCourse(Principal principal, @PathVariable Long courseId) {
+	    if (principal == null) {
+	        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(false);  // Unauthorized access
+	    }
+
+	    Optional<User> user = userService.getUserByUsername(principal.getName());
+	    if (user.isEmpty()) {
+	        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(false);  // User not found
+	    }
+
+	    Long userId = user.get().getUser_id();
+	    boolean isEnrolled = enrollmentService.checkUserInCourse(userId, courseId);
+	    
+	    return ResponseEntity.ok(isEnrolled);  // Return true or false based on enrollment status
+	}
+
 
 
 	

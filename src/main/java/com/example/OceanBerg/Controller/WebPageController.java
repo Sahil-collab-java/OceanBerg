@@ -45,5 +45,17 @@ public class WebPageController {
 	public String coursesPage() {
 		return "Courses/coursesPage"; 
 	}
+	
+	@GetMapping("/coursepv")
+	public String coursepv() {
+		return"Courses/coursepv";
+	}
+	
+	@GetMapping("/videolecture")
+	public String vlec() {
+		return "Courses/lecturevideos";
+	}
+
+
 
 }
