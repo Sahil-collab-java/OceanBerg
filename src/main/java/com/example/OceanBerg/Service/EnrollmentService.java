@@ -47,4 +47,10 @@ public class EnrollmentService {
                 .map(Enrollment::getCourse)
                 .collect(Collectors.toList());
     }
+    
+
+    public boolean checkUserInCourse(Long userId, Long courseId) {
+        return enrollmentRepository.existsByUserUserIdAndCourseCourseId(userId, courseId);
+    }
+
 }

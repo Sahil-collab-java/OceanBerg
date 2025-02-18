@@ -85,6 +85,7 @@
                    </li>
                </ul>
 </div>
+</div>
  </nav>
  <!-- Navbar End -->
 
@@ -409,7 +410,7 @@
 <!--                     <div class="position-relative overflow-hidden"> -->
 <!--                         <img class="img-fluid" src="img/course-2.jpg" alt=""> -->
 <!--                         <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4"> -->
-<!--                             <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Read More</a> -->
+<!--               z              <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Read More</a> -->
 <!--                             <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3 joinNowButton" data-course-name="Java Development Course for Beginners" data-page-mapping="/javadevelopment" style="border-radius: 0 30px 30px 0;">Join Now</a> -->
 <!--                         </div> -->
 <!--                     </div> -->
@@ -562,7 +563,7 @@
                     <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
                         &copy; <a class="border-bottom" href="#">www.oceanberg.org</a>, All Right Reserved.
 
-                        <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                        <!--/*** This template is free as long as you keep the footer authorâs credit link/attribution link/backlink. If you'd like to use the template without the footer authorâs credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
                         Designed By <a class="border-bottom" href="https://htmlcodex.com">Oceanberg Technologies Pvt. Ltd.</a>
                     </div>
                     <div class="col-md-6 text-center text-md-end">
@@ -650,7 +651,8 @@
                                     <img class="img-fluid" src=`+course.imagePath+` alt=""  style="width: 100%; height: 250px; object-fit: cover;">
                                     <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
                                          
-                                         <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3 joinNowButton" data-course-name=`+course.courseName+`" data-page-mapping="/course${course.course_id}" style="border-radius: 0 30px 30px 0;">Join Now</a>
+                                    <a href="/coursepv" class="flex-shrink-0 btn btn-sm btn-primary px-3 joinNowButton" data-course-name=`+course.courseName+`" data-page-mapping="/`+course.course_id+`" style="border-radius:  30px;">Join Now</a>
+                                    <a href="/coursepv" class="joinNowButton" data-course-name=`+course.courseName+`" data-page-mapping="/`+course.course_id+`" style="display: none;">Join Now</a>
                                     </div>
                                 </div>
                                 <div class="text-center p-4 pb-0">
@@ -678,6 +680,27 @@
 
     $(document).ready(function() {
         getAllCourses();
+    });
+    
+    const joinNowButtons = document.querySelectorAll('.joinNowButton');
+    
+    document.addEventListener("DOMContentLoaded", function () {
+        getAllCourses(); // Fetch courses on page load
+
+        document.getElementById('courses-container').addEventListener('click', function (event) {
+            if (event.target.classList.contains('joinNowButton')) {
+                event.preventDefault(); // Prevent default navigation
+
+                const courseId = event.target.getAttribute('data-page-mapping').replace('/', ''); // Extract Course ID
+                localStorage.setItem('selectedCourseId', courseId); // Store in localStorage
+
+                // ✅ Correct alert syntax
+                //alert("You are being redirected to the course preview page for Course ID: " + courseId);
+
+                // Redirect to course preview page
+                window.location.href = "/coursepv";
+            }
+        });
     });
 </script>
 
